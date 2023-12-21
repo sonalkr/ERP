@@ -1,5 +1,6 @@
 from pydantic import BaseModel
-from sqlalchemy import Column, Engine, Integer, MetaData, String
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
 
 from app.database import Base
 
@@ -12,6 +13,7 @@ class UserDb(Base):
     username = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
     password = Column(String)
+    # ledgers = relationship("LedgerDb", back_populates="users")
 
 
 class UserBase(BaseModel):

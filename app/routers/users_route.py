@@ -1,4 +1,4 @@
-from app.models.user_model import User, UserDb
+from app.models.user_model import User, UserCreate, UserDb
 from fastapi import APIRouter, Depends, HTTPException
 from app.database import get_db
 from sqlalchemy.orm import Session
@@ -21,7 +21,7 @@ def get_users(limit: int = 10, offset: int = 0, db: Session = Depends(get_db)):
 
 
 @router.post("/users")
-def create_user(user: User, db: Session = Depends(get_db)):
+def create_user(user: UserCreate, db: Session = Depends(get_db)):
     user_db = UserDb(name=user.name, username=user.username,
                      email=user.email, password=user.password)
     db.add(user_db)
