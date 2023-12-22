@@ -32,6 +32,14 @@ Navigate to your project directory and activate your virtual environment:
 `cd ERP`
 `source env/bin/activate`
 
+`poetry install`
+
+`poetry shell`
+
+`poetry add fastapi`
+
+`poetry remove fastapi`
+
 # On Windows, use `env\Scripts\activate`
 
 Then, run your FastAPI application with Uvicorn:
